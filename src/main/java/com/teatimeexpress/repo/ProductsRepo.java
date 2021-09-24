@@ -10,6 +10,5 @@ import com.teatimeexpress.models.Products;
 
 @Repository
 public interface ProductsRepo extends JpaRepository<Products, Integer> {
-	public List<Products> findAllProduct();
-	public Optional<Products> findByProductId(int product_id);
+	public Optional<Products> findByProductId(int productId);
 }

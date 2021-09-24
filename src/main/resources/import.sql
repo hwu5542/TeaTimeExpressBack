@@ -1,0 +1,1 @@
+INSERT INTO teatimeexpress.users VALUES (1, 'hong@mail.com','1 W Washington Ave, Wisconsin Dells, WI 53965','hoho','(123)456-7890','hong');

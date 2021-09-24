@@ -18,10 +18,10 @@ import lombok.Setter;
 public class Users {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int user_id;
-	private String user_username;
-	private String user_password;
-	private String user_email;
-	private String user_mail_address;
-	private String user_phone_numb;
+	private int userId;
+	private String userUsername;
+	private String userPassword;
+	private String userEmail;
+	private String userMailAddress;
+	private String userPhoneNumber;
 }

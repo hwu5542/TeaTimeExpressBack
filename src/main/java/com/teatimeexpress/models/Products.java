@@ -18,12 +18,12 @@ import lombok.Setter;
 public class Products {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int product_number;
+	private int productId;
 	
-	private String product_name;
-	private int product_weight;
-	private String product_description;
-	private int product_stock_amt;
-	private int product_order_amt;
-	private String product_image;	
+	private String productName;
+	private int productWeight;
+	private String productDescription;
+	private int productStockAmt;
+	private int productOrderAmt;
+	private String productImage;	
 }

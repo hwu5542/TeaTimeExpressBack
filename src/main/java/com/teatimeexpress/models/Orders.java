@@ -20,17 +20,17 @@ import lombok.Setter;
 public class Orders {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int order_number;
+	private int orderNumber;
 	
 	@ManyToOne
-	@JoinColumn(name = "product_number")
-	private Products product_number;
+	@JoinColumn(name = "productNumber")
+	private Products productNumber;
 	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private Users order_user_id;
+	@JoinColumn(name = "userId")
+	private Users orderUserId;
 
-	private int order_amount;
-	private String order_description;
-	private String Order_time;
+	private int orderAmount;
+	private String orderDescription;
+	private String orderTime;
 }

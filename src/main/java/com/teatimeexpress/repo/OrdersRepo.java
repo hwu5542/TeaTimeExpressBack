@@ -10,11 +10,11 @@ import com.teatimeexpress.models.Orders;
 @Repository
 public interface OrdersRepo extends JpaRepository<Orders, Integer> {
 		
-	public Optional<Orders> findByOrderNumber(int order_number);
+	public Optional<Orders> findByOrderNumber(int orderNumber);
 
-	public Optional<Orders> findByUserId(int user_id);
+	public Optional<Orders> findByOrderUserId(int OrderUserId);
 	
-	public Optional<Orders> findByProductNumber(int product_number);
+	public Optional<Orders> findByProductNumber(int productNumber);
 	
-	public Optional<Orders> findByOrderTime(String order_time);
+	public Optional<Orders> findByOrderTime(String orderTime);
 }

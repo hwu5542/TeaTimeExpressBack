@@ -9,5 +9,6 @@ import com.teatimeexpress.models.Users;
 
 @Repository
 public interface UsersRepo extends JpaRepository<Users, Integer> {
-	public Optional<Users> findByUserId(int user_id);
+	public Optional<Users> findByUserId(int userId);
+	public Optional<Users> findByUserUsername(String userUsername);
 }
