@@ -24,4 +24,10 @@ public class Users {
 	private String userEmail;
 	private String userMailAddress;
 	private String userPhoneNumber;
+	
+	public Users(String userUsername, String userPassword) {
+		super();
+		this.userUsername = userUsername;
+		this.userPassword = userPassword;
+	}
 }
