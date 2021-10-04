@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("teatimeexpress/users/")
-@AllArgsConstructor
 public class UsersController {
 	private UsersService usersService;
 	

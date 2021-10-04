@@ -21,9 +21,10 @@ public class Products {
 	private int productId;
 	
 	private String productName;
-	private int productWeight;
 	private String productDescription;
+	private String productImage;
+	private int productPrice;
+	private int productWeight;
 	private int productStockAmt;
 	private int productOrderAmt;
-	private String productImage;	
 }
