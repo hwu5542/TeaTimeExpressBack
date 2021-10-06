@@ -13,18 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teatimeexpress.models.Products;
 import com.teatimeexpress.services.ProductsService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("teatimeexpress/products/")
+@AllArgsConstructor
 public class ProductsController {
 	private ProductsService productsService;
 	
-	@GetMapping("get/{productsID}")
+	@GetMapping("get/{productsId}")
 	public ResponseEntity<Products> productsSearch(@PathVariable int productsId) {
 		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsSearch(productsId));
 	}
 	
-	@GetMapping
+	@GetMapping("getAll")
 	public ResponseEntity<List<Products>> productsList() {
 		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsList());
 	}

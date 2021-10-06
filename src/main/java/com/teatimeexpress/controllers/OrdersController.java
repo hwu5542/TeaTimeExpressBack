@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.teatimeexpress.models.Orders;
 import com.teatimeexpress.services.OrdersService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("teatimeexpress/orders")
+@AllArgsConstructor
 public class OrdersController {
 	OrdersService ordersService;
 	
