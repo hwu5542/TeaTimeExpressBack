@@ -1,5 +1,6 @@
 package com.teatimeexpress.services;
 
+import org.hibernate.hql.internal.ast.tree.IsNotNullLogicOperatorNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,10 @@ public class UsersService {
 	
 	public Users usersSignUp(UsersCredential userCredential) {
 		Users user = usersRepo.findByUserUsername(userCredential.getUsername()).orElse(null);
-		if (user instanceof Users)
-			return null;
-		else {
+		if (user != null) {
 			user = new Users(userCredential.getUsername(), passwordService.passwordHash(userCredential.getPassword()));
 			return usersRepo.save(user);
 		}
+		return null;
 	}
 }
