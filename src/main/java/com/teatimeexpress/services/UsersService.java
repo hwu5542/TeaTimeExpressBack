@@ -32,7 +32,7 @@ public class UsersService {
 	
 	public Users usersSignUp(UsersCredential userCredential) {
 		Users user = usersRepo.findByUserUsername(userCredential.getUsername()).orElse(null);
-		if (user != null) {
+		if (user == null) {
 			user = new Users(userCredential.getUsername(), passwordService.passwordHash(userCredential.getPassword()));
 			return usersRepo.save(user);
 		}

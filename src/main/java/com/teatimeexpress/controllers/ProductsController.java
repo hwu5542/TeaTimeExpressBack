@@ -22,9 +22,9 @@ import lombok.AllArgsConstructor;
 public class ProductsController {
 	private ProductsService productsService;
 	
-	@GetMapping("get/{productsId}")
-	public ResponseEntity<Products> productsSearch(@PathVariable int productsId) {
-		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsSearch(productsId));
+	@GetMapping("get/{productId}")
+	public ResponseEntity<Products> productsSearch(@PathVariable int productId) {
+		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsSearch(productId));
 	}
 	
 	@GetMapping("getAll")
