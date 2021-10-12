@@ -1,9 +1,13 @@
 package com.teatimeexpress.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,7 +26,10 @@ public class Users {
 	private String userUsername;
 	private String userPassword;
 	private String userEmail;
-	private String userMailAddress;
+	
+	@OneToMany(mappedBy = "AddressUserId", fetch=FetchType.EAGER)
+	private List<Addresses> userMailAddress;
+	
 	private String userPhoneNumber;
 	
 	public Users(String userUsername, String userPassword) {
