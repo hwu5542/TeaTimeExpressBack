@@ -30,4 +30,9 @@ public class UsersController {
 	public ResponseEntity<Users> usersSignUp(@RequestBody UsersCredential newUserCredential) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(usersService.usersSignUp(newUserCredential));
 	}
+
+	@PostMapping("update")
+	public ResponseEntity<Users> usersUpdate(@RequestBody Users newUserProfile) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(usersService.usersUpdate(newUserProfile));
+	}
 }

@@ -38,4 +38,8 @@ public class UsersService {
 		}
 		return null;
 	}
+	
+	public Users usersUpdate(Users userProfile) {
+		return usersRepo.save(userProfile);
+	}
 }
