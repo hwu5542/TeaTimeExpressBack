@@ -1,27 +1,30 @@
 package com.teatimeexpress.services;
 
-import org.hibernate.hql.internal.ast.tree.IsNotNullLogicOperatorNode;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.teatimeexpress.models.Addresses;
 import com.teatimeexpress.models.Users;
 import com.teatimeexpress.models.UsersCredential;
+import com.teatimeexpress.repo.AddressesRepo;
 import com.teatimeexpress.repo.UsersRepo;
-import com.teatimeexpress.services.PasswordService;
-
-import javassist.expr.Instanceof;
 
 @Service
 public class UsersService {
 	UsersRepo usersRepo;
+	AddressesRepo addressesRepo;
 	PasswordService passwordService;
 
 	@Autowired
-	public UsersService(UsersRepo usersRepo, PasswordService passwordService) {
+	public UsersService(UsersRepo usersRepo, AddressesRepo addressesRepo, PasswordService passwordService) {
 		super();
 		this.usersRepo = usersRepo;
+		this.addressesRepo = addressesRepo;
 		this.passwordService = passwordService;
 	}
+	
 	
 	public Users usersValidate(UsersCredential userCredential) {
 		Users user = usersRepo.findByUserUsername(userCredential.getUsername()).orElse(null);
@@ -29,7 +32,7 @@ public class UsersService {
 			return user;
 		return null;
 	}
-	
+
 	public Users usersSignUp(UsersCredential userCredential) {
 		Users user = usersRepo.findByUserUsername(userCredential.getUsername()).orElse(null);
 		if (user == null) {
@@ -40,6 +43,8 @@ public class UsersService {
 	}
 	
 	public Users usersUpdate(Users userProfile) {
+		try {userProfile.getUserMailAddress().forEach(address->address.setAddressUserId(userProfile));}
+		catch (NullPointerException e) {/*ignore NullPointerException*/}
 		return usersRepo.save(userProfile);
 	}
 }
