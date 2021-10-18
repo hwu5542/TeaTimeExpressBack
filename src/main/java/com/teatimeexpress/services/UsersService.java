@@ -43,8 +43,16 @@ public class UsersService {
 	}
 	
 	public Users usersUpdate(Users userProfile) {
-		try {userProfile.getUserMailAddress().forEach(address->address.setAddressUserId(userProfile));}
+		try {
+			userProfile.getUserMailAddress().forEach(mailAddress->{
+				mailAddress.setAddressUserId(userProfile);
+				if (mailAddress.getAddressId() == 0) {
+					mailAddress = new Addresses(mailAddress);
+				}
+			});
+		}
 		catch (NullPointerException e) {/*ignore NullPointerException*/}
+		
 		return usersRepo.save(userProfile);
 	}
 }

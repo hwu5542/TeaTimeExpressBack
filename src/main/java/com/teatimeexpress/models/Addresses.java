@@ -38,4 +38,16 @@ public class Addresses {
 	private String addressPostcode;
 	private String addressCountry;
 	private String addressState;
+	
+	public Addresses(Addresses mailAddress) {
+		super();
+		AddressUserId = mailAddress.getAddressUserId();
+		this.addressLineOne = mailAddress.getAddressLineOne();
+		this.addressLineTwo = mailAddress.getAddressLineTwo();
+		this.addressCity = mailAddress.getAddressCity();
+		this.addressAptSuite = mailAddress.getAddressAptSuite();
+		this.addressPostcode = mailAddress.getAddressPostcode();
+		this.addressCountry = mailAddress.getAddressCountry();
+		this.addressState = mailAddress.getAddressState();
+	}
 }

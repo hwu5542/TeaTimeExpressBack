@@ -33,6 +33,6 @@ public class UsersController {
 
 	@PostMapping("update")
 	public ResponseEntity<Users> usersUpdate(@RequestBody Users newUserProfile) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(usersService.usersUpdate(newUserProfile));
+		return ResponseEntity.status(HttpStatus.OK).body(usersService.usersUpdate(newUserProfile));
 	}
 }

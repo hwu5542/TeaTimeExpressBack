@@ -22,4 +22,4 @@ INSERT INTO teatimeexpress.orders VALUES (1, 1,'123','9:42 10/4/2021',1,1);
 alter sequence teatimeexpress.products_product_id_seq restart with 10;
 alter sequence teatimeexpress.orders_order_number_seq restart with 2;
 alter sequence teatimeexpress.users_user_id_seq restart with 2;
-alter sequence teatimeexpress.addresses_address_id_seq restart with 2;
+alter sequence teatimeexpress.addresses_address_id_seq restart with 5;
