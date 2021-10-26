@@ -1,5 +1,6 @@
 package com.teatimeexpress.services;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.teatimeexpress.repo.UsersRepo;
 
 @Service
 public class UsersService {
+	HashSet<String> adminList;
 	UsersRepo usersRepo;
 	AddressesRepo addressesRepo;
 	PasswordService passwordService;
@@ -23,6 +25,11 @@ public class UsersService {
 		this.usersRepo = usersRepo;
 		this.addressesRepo = addressesRepo;
 		this.passwordService = passwordService;
+		
+		Users adminUser = usersRepo.findByUserId(1).orElse(null);
+		
+		this.adminList = new HashSet<String>();
+		adminList.add(adminUser.getUserUsername());
 	}
 	
 	
@@ -54,5 +61,16 @@ public class UsersService {
 		catch (NullPointerException e) {/*ignore NullPointerException*/}
 		
 		return usersRepo.save(userProfile);
+	}
+	
+	public List<Users> usersList(UsersCredential adminCredential) {
+		if (adminList.contains(adminCredential.getUsername())) {
+			Users adminStore = usersRepo.findByUserUsername(adminCredential.getUsername()).orElse(null);
+			if (adminStore.getUserPassword().equals(adminCredential.getPassword())) {
+				return usersRepo.findAll();
+			}
+		}
+		
+		return null;
 	}
 }
