@@ -1,5 +1,6 @@
 package com.teatimeexpress.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,11 +24,11 @@ public class Orders {
 	private int orderNumber;
 	
 	@ManyToOne
-	@JoinColumn(name = "productNumber")
+	@JoinColumn(name = "product_id")
 	private Products productNumber;
 	
 	@ManyToOne
-	@JoinColumn(name = "userId")
+	@JoinColumn(name = "user_id")
 	private Users orderUserId;
 
 	private int orderAmount;
