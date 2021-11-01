@@ -38,7 +38,7 @@ public class Users {
 	@JoinColumn(name = "addressId")
 	private Addresses userBillAddress;
 	
-	@OneToMany(mappedBy = "AddressUserId", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "addressUserId", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Addresses> userMailAddress;
 	
 	public Users(String userUsername, String userPassword) {

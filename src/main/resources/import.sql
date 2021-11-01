@@ -26,15 +26,15 @@ INSERT INTO teatimeexpress.products VALUES (7, '123','IMG_0536;IMG_0537;IMG_0538
 INSERT INTO teatimeexpress.products VALUES (8, '123','IMG_0536;IMG_0537;IMG_0538;IMG_0539','IMG_0535','johnny',1,998.99,1,10);
 INSERT INTO teatimeexpress.products VALUES (9, '123','IMG_0536;IMG_0537;IMG_0538;IMG_0539','IMG_0535','johnny',1,998.99,1,10);
 
-INSERT INTO teatimeexpress.orders VALUES (1, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (2, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (3, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (4, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (5, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (6, 1,'123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (7, 2,'123','9:42 10/4/2021',2,1);
-INSERT INTO teatimeexpress.orders VALUES (8, 3,'123','9:42 10/4/2021',3,1);
-INSERT INTO teatimeexpress.orders VALUES (9, 4,'123','9:42 10/4/2021',4,1);
+INSERT INTO teatimeexpress.orders VALUES (1, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (2, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (3, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (4, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (5, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (6, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (7, '123','9:42 10/4/2021',2,1);
+INSERT INTO teatimeexpress.orders VALUES (8, '123','9:42 10/4/2021',3,1);
+INSERT INTO teatimeexpress.orders VALUES (9, '123','9:42 10/4/2021',4,1);
 
 alter sequence teatimeexpress.products_product_id_seq restart with 10;
 alter sequence teatimeexpress.orders_order_number_seq restart with 10;

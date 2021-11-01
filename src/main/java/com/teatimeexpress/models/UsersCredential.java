@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UsersCredential {
-	String username;
-	String password;
+	private String username;
+	private String password;
 }

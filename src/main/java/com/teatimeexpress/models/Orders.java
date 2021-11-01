@@ -1,12 +1,16 @@
 package com.teatimeexpress.models;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,16 +26,23 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int orderNumber;
-	
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Products productNumber;
-	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
+		
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name = "userId")
 	private Users orderUserId;
 
-	private int orderAmount;
+	private int orderTotal;
 	private String orderDescription;
 	private String orderTime;
+	
+	@OneToMany(mappedBy = "orderNumber", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<CartItems> orderCart;
+
+	public Orders(Users orderUserId) {
+		super();
+		this.orderUserId = orderUserId;
+		this.orderTotal = 0;
+		this.orderDescription = "";
+		this.orderTime = "";
+	}
 }

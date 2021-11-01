@@ -29,7 +29,7 @@ public class Addresses {
 	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="userId")
-	private Users AddressUserId;
+	private Users addressUserId;
 	
 	private String addressLineOne;
 	private String addressLineTwo;
@@ -41,7 +41,7 @@ public class Addresses {
 	
 	public Addresses(Addresses mailAddress) {
 		super();
-		AddressUserId = mailAddress.getAddressUserId();
+		this.addressUserId = mailAddress.getAddressUserId();
 		this.addressLineOne = mailAddress.getAddressLineOne();
 		this.addressLineTwo = mailAddress.getAddressLineTwo();
 		this.addressCity = mailAddress.getAddressCity();
