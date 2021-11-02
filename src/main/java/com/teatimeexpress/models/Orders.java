@@ -40,13 +40,4 @@ public class Orders {
 	
 	@OneToMany(mappedBy = "orderNumber", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CartItems> orderCart;
-
-	public Orders(Orders order) {
-		super();
-		this.orderUserId = order.getOrderUserId();
-		this.orderTotal = 0;
-		this.orderDescription = order.getOrderDescription();
-		this.orderTime = order.getOrderTime();
-		this.orderCart = order.getOrderCart();
-	}
 }

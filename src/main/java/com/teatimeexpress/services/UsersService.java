@@ -54,15 +54,9 @@ public class UsersService {
 		try {
 			userProfile.getUserMailAddress().forEach(mailAddress->{
 				mailAddress.setAddressUserId(userProfile);
-				if (mailAddress.getAddressId() == 0) {
-					mailAddress = new Addresses(mailAddress);
-				}
 			});
 			userProfile.getUserOrders().forEach(orders->{
 				orders.setOrderUserId(userProfile);
-				if (orders.getOrderTotal() == 0) {
-					orders = new Orders(orders);
-				}				
 			});
 		}
 		catch (NullPointerException e) {/*ignore NullPointerException*/}
