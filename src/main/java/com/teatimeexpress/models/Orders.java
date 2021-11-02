@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,8 @@ public class Orders {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int orderNumber;
 		
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonIgnore
+	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.MERGE)
 	@JoinColumn(name = "userId")
 	private Users orderUserId;
 
@@ -35,14 +38,15 @@ public class Orders {
 	private String orderDescription;
 	private String orderTime;
 	
-	@OneToMany(mappedBy = "orderNumber", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "orderNumber", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CartItems> orderCart;
 
-	public Orders(Users orderUserId) {
+	public Orders(Orders order) {
 		super();
-		this.orderUserId = orderUserId;
+		this.orderUserId = order.getOrderUserId();
 		this.orderTotal = 0;
-		this.orderDescription = "";
-		this.orderTime = "";
+		this.orderDescription = order.getOrderDescription();
+		this.orderTime = order.getOrderTime();
+		this.orderCart = order.getOrderCart();
 	}
 }

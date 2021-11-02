@@ -30,20 +30,8 @@ public class OrdersService {
 		return ordersRepo.findAll();
 	}
 	
-	public Orders ordersCreate(Users userProfile) {
-
-		Orders order = ordersRepo.findByOrderUserId(userProfile.getUserId()).orElse(null);
-		
-		if (order == null) {
-			order = new Orders(userProfile);
-			return ordersRepo.save(order);
-		} else
-			return order;
-	}
-	
 	public Orders ordersCheckout(List<CartItems> newCart) {
 		cartItemsRepo.saveAll(newCart);
-//		return ordersRepo.findByOrderNumber(newCart.get(0).getOrderNumber().getOrderNumber()).orElse(null);
-		return null;
+		return ordersRepo.findByOrderNumber(newCart.get(0).getOrderNumber().getOrderNumber()).orElse(null);
 	}
 }

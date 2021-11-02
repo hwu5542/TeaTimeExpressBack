@@ -35,12 +35,7 @@ public class OrdersController {
 	public ResponseEntity<Orders> ordersSearch(@PathVariable int ordersId) {
 		return ResponseEntity.status(HttpStatus.OK).body(ordersService.ordersSearch(ordersId));
 	}
-	
-	@PostMapping("create")
-	public ResponseEntity<Orders> ordersCreate(@RequestBody Users userProfile) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(ordersService.ordersCreate(userProfile));
-	}
-	
+		
 	@PostMapping("checkout")
 	public ResponseEntity<Orders> ordersCheckout(@RequestBody List<CartItems> newCart) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(ordersService.ordersCheckout(newCart));

@@ -27,9 +27,9 @@ INSERT INTO teatimeexpress.products VALUES (8, '123','IMG_0536;IMG_0537;IMG_0538
 INSERT INTO teatimeexpress.products VALUES (9, '123','IMG_0536;IMG_0537;IMG_0538;IMG_0539','IMG_0535','johnny',1,998.99,1,10);
 
 INSERT INTO teatimeexpress.orders VALUES (1, '123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (2, '123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (3, '123','9:42 10/4/2021',1,1);
-INSERT INTO teatimeexpress.orders VALUES (4, '123','9:42 10/4/2021',1,1);
+INSERT INTO teatimeexpress.orders VALUES (2, '123','9:42 10/4/2021',1,2);
+INSERT INTO teatimeexpress.orders VALUES (3, '123','9:42 10/4/2021',1,3);
+INSERT INTO teatimeexpress.orders VALUES (4, '123','9:42 10/4/2021',1,4);
 INSERT INTO teatimeexpress.orders VALUES (5, '123','9:42 10/4/2021',1,1);
 INSERT INTO teatimeexpress.orders VALUES (6, '123','9:42 10/4/2021',1,1);
 INSERT INTO teatimeexpress.orders VALUES (7, '123','9:42 10/4/2021',2,1);

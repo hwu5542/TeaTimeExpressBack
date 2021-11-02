@@ -38,8 +38,11 @@ public class Users {
 	@JoinColumn(name = "addressId")
 	private Addresses userBillAddress;
 	
-	@OneToMany(mappedBy = "addressUserId", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "addressUserId", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Addresses> userMailAddress;
+	
+	@OneToMany(mappedBy = "orderUserId", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Orders> userOrders;
 	
 	public Users(String userUsername, String userPassword) {
 		super();

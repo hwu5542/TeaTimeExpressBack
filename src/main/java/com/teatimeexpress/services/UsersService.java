@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.teatimeexpress.models.Addresses;
+import com.teatimeexpress.models.Orders;
 import com.teatimeexpress.models.Users;
 import com.teatimeexpress.models.UsersCredential;
 import com.teatimeexpress.repo.AddressesRepo;
@@ -56,6 +57,12 @@ public class UsersService {
 				if (mailAddress.getAddressId() == 0) {
 					mailAddress = new Addresses(mailAddress);
 				}
+			});
+			userProfile.getUserOrders().forEach(orders->{
+				orders.setOrderUserId(userProfile);
+				if (orders.getOrderTotal() == 0) {
+					orders = new Orders(orders);
+				}				
 			});
 		}
 		catch (NullPointerException e) {/*ignore NullPointerException*/}
