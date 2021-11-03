@@ -57,6 +57,9 @@ public class UsersService {
 			});
 			userProfile.getUserOrders().forEach(orders->{
 				orders.setOrderUserId(userProfile);
+				orders.getOrderCart().forEach(cart->{
+					cart.setOrderNumber(orders);
+				});
 			});
 		}
 		catch (NullPointerException e) {/*ignore NullPointerException*/}
