@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +32,10 @@ public class ProductsController {
 	@GetMapping("getAll")
 	public ResponseEntity<List<Products>> productsList() {
 		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsList());
+	}
+	
+	@PostMapping("update")
+	public ResponseEntity<List<Products>> productsUpdate(@RequestBody List<Products> newProductsList) {
+		return ResponseEntity.status(HttpStatus.OK).body(productsService.productsUpdate(newProductsList));
 	}
 }

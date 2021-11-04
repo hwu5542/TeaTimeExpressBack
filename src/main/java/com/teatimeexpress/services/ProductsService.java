@@ -25,4 +25,8 @@ public class ProductsService {
 	public List<Products> productsList() {
 		return productsRepo.findAll();
 	}
+	
+	public List<Products> productsUpdate(List<Products> newProductsList) {
+		return productsRepo.saveAll(newProductsList);
+	}
 }
