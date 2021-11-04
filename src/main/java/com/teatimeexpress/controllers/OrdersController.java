@@ -20,7 +20,7 @@ import com.teatimeexpress.services.OrdersService;
 import lombok.AllArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://teatimeexpress.s3.us-east-2.amazonaws.com")
 @RequestMapping("teatimeexpress/orders")
 @AllArgsConstructor
 public class OrdersController {

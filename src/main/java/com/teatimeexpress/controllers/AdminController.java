@@ -17,7 +17,7 @@ import com.teatimeexpress.services.UsersService;
 import lombok.AllArgsConstructor;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://teatimeexpress.s3.us-east-2.amazonaws.com")
 @RequestMapping("teatimeexpress/admin/")
 @AllArgsConstructor
 public class AdminController {
